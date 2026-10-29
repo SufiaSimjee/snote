@@ -2,12 +2,26 @@ package com.example.snote
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.snote.databinding.ListItemBinding
 import com.example.snote.model.Note
 
 class NoteHolder(val binding: ListItemBinding)
     : RecyclerView.ViewHolder(binding.root){
+
+    fun bind(note: Note) {
+        binding.tvTitle.text = note.title
+        binding.tvDate.text = note.date.toString()
+
+        binding.root.setOnClickListener {
+            Toast.makeText(
+                binding.root.context,
+                "${note.title} clicked!",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+    }
 }
 
 class NoteListAdapter(private val notes: List<Note>)
@@ -24,10 +38,7 @@ class NoteListAdapter(private val notes: List<Note>)
 
     override fun onBindViewHolder(holder: NoteHolder, position: Int) {
        val note = notes[position]
-        holder.apply {
-            binding.tvTitle.text = note.title
-            binding.tvDate.text = note.date.toString()
-        }
+        holder.bind(note)
     }
 
     override fun getItemCount() = notes.size
