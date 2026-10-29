@@ -3,4 +3,5 @@
     <string name="et_title_hint">Title</string>
     <string name="tvl_desc_hint">Content</string>
     <string name="btn_save_text">Save</string>
+    <string name="note_list">Note List</string>
 </resources>

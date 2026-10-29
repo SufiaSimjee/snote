@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.snote.databinding.ActivityMainBinding
 import com.example.snote.fragment.NoteDetailFragment
+import com.example.snote.fragment.NoteListFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -14,9 +15,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val fragment = NoteDetailFragment()
+        val fragment = NoteListFragment()
         supportFragmentManager.beginTransaction()
-            .add(R.id.main , fragment)
+            .add(R.id.fragment_con , fragment)
             .commit()
     }
 }

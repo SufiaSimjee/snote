@@ -1,12 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.fragment.app.FragmentContainerView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:name="com.example.snote.fragment.NoteDetailFragment"
+    android:orientation="vertical"
     android:background="@color/white">
 
-</androidx.fragment.app.FragmentContainerView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/note_list"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:textColor="@color/blue"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"/>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_con"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.example.snote.fragment.NoteListFragment">
+
+    </androidx.fragment.app.FragmentContainerView>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
