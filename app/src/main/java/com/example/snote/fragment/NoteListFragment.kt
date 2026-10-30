@@ -8,11 +8,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.snote.NoteListViewModel
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.snote.NoteListAdapter
 import com.example.snote.databinding.NoteListFragmentBinding
-
-private const val TAG = "NoteListFragment"
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 
 class NoteListFragment: Fragment() {
 
@@ -20,11 +21,6 @@ class NoteListFragment: Fragment() {
     private var _binding: NoteListFragmentBinding? = null
     private val binding get() = checkNotNull(_binding) {
         "Cannot access binding because it is null"
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        Log.d(TAG, "Total notes: ${noteListViewModel.notes.size}")
     }
 
     override fun onCreateView(
@@ -36,12 +32,16 @@ class NoteListFragment: Fragment() {
             .inflate(inflater ,container , false)
 
         binding.noteRecycleView.layoutManager = LinearLayoutManager(context)
-        val notes = noteListViewModel.notes
-        val adapter = NoteListAdapter(notes)
-
-        binding.noteRecycleView.adapter = adapter
-
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            val notes = noteListViewModel.loadNotes()
+            binding.noteRecycleView.adapter = NoteListAdapter(notes)
+        }
     }
 
     override fun onDestroy() {
