@@ -3,9 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/border"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:padding="15dp"
-    android:layout_marginBottom="14dp">
+    android:layout_marginBottom="16dp">
 
     <TextView
         android:id="@+id/tv_title"
@@ -20,6 +20,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Note Date"
-        android:gravity="end"/>
+        android:gravity="start"/>
 
 </androidx.appcompat.widget.LinearLayoutCompat>
