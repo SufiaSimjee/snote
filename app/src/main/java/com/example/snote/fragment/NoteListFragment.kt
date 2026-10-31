@@ -12,6 +12,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.snote.NoteListAdapter
 import com.example.snote.databinding.NoteListFragmentBinding
+import com.example.snote.model.Note
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
@@ -39,8 +40,9 @@ class NoteListFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewLifecycleOwner.lifecycleScope.launch {
-            val notes = noteListViewModel.loadNotes()
-            binding.noteRecycleView.adapter = NoteListAdapter(notes)
+            noteListViewModel.notes.collect { notes ->
+                binding.noteRecycleView.adapter = NoteListAdapter(notes)
+            }
         }
     }
 
