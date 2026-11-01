@@ -16,7 +16,7 @@ class NoteRepository private constructor(context: Context){
         DATABASE_NAME
     ).createFromAsset(DATABASE_NAME).build()
 
-     fun getNotes(): Flow<List<Note>> = database.noteDao().getNotes()
+    fun getNotes(): Flow<List<Note>> = database.noteDao().getNotes()
     suspend fun getNote(id: UUID): Note = database.noteDao().getNote(id)
 
     companion object {

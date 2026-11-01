@@ -5,6 +5,7 @@
     android:background="@drawable/border"
     android:orientation="vertical"
     android:padding="15dp"
+    android:layout_margin="20dp"
     android:layout_marginBottom="16dp">
 
     <TextView
@@ -13,6 +14,7 @@
         android:layout_height="wrap_content"
         android:text="Note Title"
         android:textSize="28sp"
+        android:paddingBottom="10dp"
         android:textStyle="bold"/>
 
     <TextView
@@ -20,6 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Note Date"
+        android:layout_marginBottom="5dp"
         android:gravity="start"/>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

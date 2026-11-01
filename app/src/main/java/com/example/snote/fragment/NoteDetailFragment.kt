@@ -1,11 +1,13 @@
 package com.example.snote.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
 import com.example.snote.databinding.NoteDetailFragmentBinding
 import com.example.snote.model.Note
 import java.util.Date
@@ -14,6 +16,7 @@ import java.util.UUID
 class NoteDetailFragment: Fragment() {
 
     private lateinit var note: Note
+    private val args: NoteDetailFragmentArgs by navArgs()
 
     private var _binding : NoteDetailFragmentBinding? = null
     private val binding get() = checkNotNull(_binding) {
@@ -29,6 +32,8 @@ class NoteDetailFragment: Fragment() {
                     content = "" ,
                     date = Date()
                     )
+
+        Log.d("NoteID", "The note ID is: ${args.noteId}")
     }
 
     override fun onCreateView(

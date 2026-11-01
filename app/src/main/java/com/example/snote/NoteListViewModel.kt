@@ -3,13 +3,10 @@ package com.example.snote
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.snote.model.Note
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import java.util.Date
-import java.util.UUID
 
 class NoteListViewModel: ViewModel() {
     private val noteRepository = NoteRepository.get()
