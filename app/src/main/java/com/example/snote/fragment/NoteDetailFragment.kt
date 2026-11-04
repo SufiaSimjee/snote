@@ -6,16 +6,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.snote.databinding.NoteDetailFragmentBinding
 import com.example.snote.model.Note
 import com.example.snote.viewModel.NoteDetailViewModel
 import com.example.snote.viewModel.NoteDetailViewModelFactory
 import kotlinx.coroutines.launch
+import java.util.Date
 
 class NoteDetailFragment: Fragment() {
 
@@ -70,6 +73,14 @@ class NoteDetailFragment: Fragment() {
                 }
             }
         }
+
+        setFragmentResultListener(
+            DatePickerFragment.REQUEST_KEY_DATE
+        ) { _, bundle ->
+            val newDate =
+                bundle.getSerializable(DatePickerFragment.BUNDLE_KEY_DATE) as Date
+            noteDetailViewModel.updateNote { it.copy(date = newDate) }
+        }
     }
 
     override fun onDestroy() {
@@ -86,7 +97,11 @@ class NoteDetailFragment: Fragment() {
             if (descriptionInput.text.toString() != note.content) {
                 descriptionInput.setText(note.content)
             }
-            tvNoteDate.text = note.date.toString()
+            btnNoteDate.text = note.date.toString()
+
+            btnNoteDate.setOnClickListener {
+                findNavController().navigate(NoteDetailFragmentDirections.showDatePicker(note.date))
+            }
         }
     }
 }

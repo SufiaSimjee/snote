@@ -16,13 +16,14 @@
         android:paddingTop="25dp"
         android:layout_marginBottom="10dp"/>
 
-    <TextView
-        android:id="@+id/tv_note_date"
+    <Button
+        android:id="@+id/btn_note_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:text= "29/10/2026"
         android:layout_gravity="start"
-        android:paddingBottom="18dp"/>
+        android:paddingBottom="18dp"
+        android:layout_marginBottom="25dp"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/descriptionLayout"
