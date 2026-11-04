@@ -1,6 +1,7 @@
 package com.example.snote.database
 
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
@@ -21,4 +22,7 @@ interface NoteDao {
 
     @Insert
     suspend fun addNote(note: Note)
+
+    @Delete
+    suspend fun deleteNote(note: Note)
 }

@@ -33,6 +33,11 @@ class NoteRepository private constructor(context: Context, private val coroutine
         database.noteDao().addNote(note)
     }
 
+
+    suspend fun deleteNote(note: Note) {
+        database.noteDao().deleteNote(note)
+    }
+
     companion object {
         private var INSTANCE: NoteRepository? = null
 

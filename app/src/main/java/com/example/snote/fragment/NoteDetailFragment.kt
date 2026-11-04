@@ -64,6 +64,13 @@ class NoteDetailFragment: Fragment() {
                 }
             }
 
+            btnNoteDelete.setOnClickListener {
+                noteDetailViewModel.note.value?.let { note ->
+                    noteDetailViewModel.deleteNote(note)
+                    findNavController().navigateUp()
+                }
+            }
+
         }
 
         viewLifecycleOwner.lifecycleScope.launch {

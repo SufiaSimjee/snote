@@ -29,6 +29,12 @@ class NoteDetailViewModel(noteId: UUID): ViewModel() {
         }
     }
 
+    fun deleteNote(note: Note) {
+        viewModelScope.launch {
+            noteRepository.deleteNote(note)
+        }
+    }
+
     override fun onCleared() {
         super.onCleared()
         note.value?.let { noteRepository.updateNote(it) }

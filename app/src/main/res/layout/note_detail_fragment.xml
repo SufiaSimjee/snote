@@ -7,6 +7,14 @@
     android:background="@color/white"
     android:padding="25dp">
 
+    <Button
+        android:id="@+id/btn_note_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/delete"
+        android:backgroundTint="@color/red"
+        android:layout_gravity="start" />
+
     <EditText
         android:id="@+id/et_title"
         android:layout_width="match_parent"
@@ -22,7 +30,6 @@
         android:layout_height="wrap_content"
         tools:text= "29/10/2026"
         android:layout_gravity="start"
-        android:paddingBottom="18dp"
         android:layout_marginBottom="25dp"/>
 
     <com.google.android.material.textfield.TextInputLayout
