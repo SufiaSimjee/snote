@@ -29,6 +29,10 @@ class NoteRepository private constructor(context: Context, private val coroutine
          }
     }
 
+    suspend fun addNote(note: Note) {
+        database.noteDao().addNote(note)
+    }
+
     companion object {
         private var INSTANCE: NoteRepository? = null
 

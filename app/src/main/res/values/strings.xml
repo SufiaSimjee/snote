@@ -4,4 +4,5 @@
     <string name="tvl_desc_hint">Content</string>
     <string name="btn_save_text">Save</string>
     <string name="note_list">Snote</string>
+    <string name="new_note">New\n</string>
 </resources>

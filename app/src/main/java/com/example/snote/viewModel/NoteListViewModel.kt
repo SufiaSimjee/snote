@@ -14,6 +14,10 @@ class NoteListViewModel: ViewModel() {
     private val _notes: MutableStateFlow<List<Note>> = MutableStateFlow(emptyList())
     val notes: StateFlow<List<Note>> get() = _notes.asStateFlow()
 
+    suspend fun addNote(note: Note) {
+        noteRepository.addNote(note)
+    }
+
     init {
         viewModelScope.launch {
             noteRepository.getNotes().collect {
