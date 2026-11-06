@@ -4,6 +4,15 @@
     <string name="tvl_desc_hint">Content</string>
     <string name="btn_save_text">Save</string>
     <string name="note_list">Snote</string>
-    <string name="new_note">New\n</string>
+    <string name="new_note">New</string>
     <string name="delete">Delete</string>
+    <string name="note_send">Choose</string>
+    <string name="note_text">Send</string>
+    <string name="note_report">%1$s!
+        The note was created on %2$s. %3$s. and %4$s
+    </string>
+    <string name="note_report_no_sendTo">there is no person to send to.</string>
+    <string name="note_report_sendTo">the send to is %s.</string>
+    <string name="note_report_subject">SNote Report</string>
+    <string name="send_report">Send report via</string>
 </resources>

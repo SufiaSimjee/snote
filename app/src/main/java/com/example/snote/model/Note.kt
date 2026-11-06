@@ -10,5 +10,6 @@ data class Note(
     @PrimaryKey val id: UUID,
     val title: String,
     val content: String,
-    val date: Date
+    val date: Date,
+    val sendTo: String = ""
 )

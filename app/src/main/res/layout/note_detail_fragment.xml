@@ -7,13 +7,15 @@
     android:background="@color/white"
     android:padding="25dp">
 
-    <Button
+    <ImageButton
         android:id="@+id/btn_note_delete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/delete"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_delete"
         android:backgroundTint="@color/red"
-        android:layout_gravity="start" />
+        android:contentDescription="@string/delete"
+        android:layout_gravity="end"
+        android:scaleType="centerInside" />
 
     <EditText
         android:id="@+id/et_title"
@@ -42,12 +44,26 @@
             android:id="@+id/descriptionInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minLines="20"
-            android:maxLines="22"
+            android:minLines="6"
             android:inputType="textMultiLine"
             android:padding="12dp"
-            android:layout_marginBottom="25dp"/>
+            android:layout_marginBottom="28dp"/>
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/note_send"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/note_send"
+        android:backgroundTint="@color/green"
+        android:layout_marginBottom="10dp"/>
+
+    <Button
+        android:id="@+id/note_report"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/note_text"
+        android:backgroundTint="@color/blue"/>
 
 </androidx.appcompat.widget.LinearLayoutCompat>
