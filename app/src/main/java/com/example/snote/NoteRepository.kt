@@ -5,6 +5,7 @@ import androidx.room.Room
 import com.example.snote.model.Note
 import com.example.snote.database.NoteDatabase
 import com.example.snote.database.migration_1_2
+import com.example.snote.database.migration_2_3
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.flow.Flow
@@ -18,7 +19,7 @@ class NoteRepository private constructor(context: Context, private val coroutine
         context.applicationContext,
         NoteDatabase::class.java,
         DATABASE_NAME
-    ).addMigrations(migration_1_2).createFromAsset(DATABASE_NAME).build()
+    ).addMigrations(migration_1_2 , migration_2_3).createFromAsset(DATABASE_NAME).build()
 
     fun getNotes(): Flow<List<Note>> = database.noteDao().getNotes()
     suspend fun getNote(id: UUID): Note = database.noteDao().getNote(id)

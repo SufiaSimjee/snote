@@ -11,5 +11,6 @@ data class Note(
     val title: String,
     val content: String,
     val date: Date,
-    val sendTo: String = ""
+    val sendTo: String = "",
+    val photoFileName: String? = null
 )

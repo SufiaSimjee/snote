@@ -1,69 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:background="@color/white"
-    android:padding="25dp">
+    android:fillViewport="true">
 
-    <ImageButton
-        android:id="@+id/btn_note_delete"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:src="@drawable/ic_delete"
-        android:backgroundTint="@color/red"
-        android:contentDescription="@string/delete"
-        android:layout_gravity="end"
-        android:scaleType="centerInside" />
-
-    <EditText
-        android:id="@+id/et_title"
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/et_title_hint"
-        android:textSize="28sp"
-        android:paddingTop="25dp"
-        android:layout_marginBottom="10dp"/>
+        android:orientation="vertical"
+        android:padding="24dp">
 
-    <Button
-        android:id="@+id/btn_note_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:text= "29/10/2026"
-        android:layout_gravity="start"
-        android:layout_marginBottom="25dp"/>
+        <ImageButton
+            android:id="@+id/btn_note_delete"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="end"
+            android:src="@drawable/ic_delete"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/delete"
+            android:scaleType="centerInside"
+            android:padding="8dp"
+            app:tint="#D32F2F" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/descriptionLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/tvl_desc_hint">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/descriptionInput"
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minLines="6"
-            android:inputType="textMultiLine"
-            android:padding="12dp"
-            android:layout_marginBottom="28dp"/>
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="20dp">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-    <Button
-        android:id="@+id/note_send"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/note_send"
-        android:backgroundTint="@color/green"
-        android:layout_marginBottom="10dp"/>
+            <ImageView
+                android:id="@+id/note_photo"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="#F5F5F5"
+                android:scaleType="centerCrop"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="10dp"
+                android:cropToPadding="true"/>
 
-    <Button
-        android:id="@+id/note_report"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/note_text"
-        android:backgroundTint="@color/blue"/>
+            <ImageButton
+                android:id="@+id/note_camera"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_camera"
+                android:background="@color/blue"
+                android:scaleType="centerInside"
+                android:contentDescription="Add photo" />
 
-</androidx.appcompat.widget.LinearLayoutCompat>
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/et_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/et_title_hint"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:textColor="#212121"
+                android:textColorHint="#9E9E9E"
+                android:background="@null"
+                android:paddingTop="16dp"
+                android:paddingBottom="12dp"
+                android:singleLine="true"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <Button
+            android:id="@+id/btn_note_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:backgroundTint="#F1F3F5"
+            android:textColor="#616161"
+            android:textSize="12sp"
+            android:minHeight="36dp"
+            android:textAllCaps="false"
+            tools:text="29 October 2026"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#EEEEEE"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="16dp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/descriptionLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/tvl_desc_hint"
+            app:boxBackgroundMode="none"
+            xmlns:app="http://schemas.android.com/apk/res-auto">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/descriptionInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:inputType="textMultiLine|textCapSentences"
+                android:textSize="16sp"
+                android:padding="8dp"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/note_send"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="32dp"
+            android:text="@string/note_send"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:backgroundTint="#263238"/>
+
+        <Button
+            android:id="@+id/note_report"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/note_text"
+            android:textAllCaps="false"
+            android:textColor="#424242"
+            android:backgroundTint="#EEEEEE"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</ScrollView>
